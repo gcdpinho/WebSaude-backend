@@ -85,6 +85,11 @@ const doencaTraumaDAO = {
     insert: "INSERT INTO doencaTrauma (idTrauma, idDoenca) VALUES (?, ?)",
 }
 
+const utilityDAO = {
+    showTables: "SHOW TABLES",
+    descTable: "DESC ?"
+}
+
 module.exports = {
     doencaDAO,
     corDAO,

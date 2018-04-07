@@ -87,7 +87,6 @@ const doencaTraumaDAO = {
 
 const utilityDAO = {
     showTables: "SHOW TABLES",
-    descTable: "DESC ?"
 }
 
 module.exports = {

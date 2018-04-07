@@ -7,7 +7,8 @@ const showTables = function (req, res) {
 }
 
 const descTable = function (req, res) {
-    functions.service(query.utilityDAO.descTable, req, res, [req.body.table], "", "", false);
+    var q = "DESC "+req.body.table
+    functions.service(q, req, res, [], "", "", false);
 }
 
 module.exports = {

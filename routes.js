@@ -1,3 +1,20 @@
 module.exports = function (router) {
     require('./routes/doencaRouter.js')(router);
+    require('./routes/corRouter.js')(router);
+    require('./routes/crescimentoRouter.js')(router);
+    require('./routes/evolucaoRouter.js')(router);
+    require('./routes/lesaoFundamentalRouter.js')(router);
+    require('./routes/palpacaoRouter.js')(router);
+    require('./routes/localizacaoRouter.js')(router);
+    require('./routes/superficieRouter.js')(router);
+    require('./routes/traumaRouter.js')(router);
+    require('./routes/utilityRouter.js')(router);
+    require('./routes/doencaCorRouter.js')(router);
+    require('./routes/doencaCrescimentoRouter.js')(router);
+    require('./routes/doencaEvolucaoRouter.js')(router);
+    require('./routes/doencaLesaoFundamentalRouter.js')(router);
+    require('./routes/doencaPalpacaoRouter.js')(router);
+    require('./routes/doencaLocalizacaoRouter.js')(router);
+    require('./routes/doencaSuperficieRouter.js')(router);
+    require('./routes/doencaTraumaRouter.js')(router);
 }

@@ -107,5 +107,6 @@ module.exports = {
     localizacaoDAO,
     doencaLocalizacaoDAO,
     traumaDAO,
-    doencaTraumaDAO
+    doencaTraumaDAO,
+    utilityDAO
 }

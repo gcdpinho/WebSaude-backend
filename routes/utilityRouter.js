@@ -10,4 +10,11 @@ module.exports = function (router) {
         utility.descTable(req, res);
     });
 
+    router.post('/utility/insertAll', (req, res) => {
+        utility.insertAll(req, res);
+    });
+
+    router.post('/utility/selectByAtributoByTable', (req, res) => {
+        utility.selectByAtributoByTable(req, res);
+    });
 }

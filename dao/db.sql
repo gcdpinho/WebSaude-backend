@@ -2,15 +2,62 @@ CREATE TABLE doenca(
     id INT NOT NULL AUTO_INCREMENT,
     nome varchar(45) NOT NULL UNIQUE,
     tipo varchar(45),
-    insercao varchar(45),
-    dor INT,
-    comeco INT,
+    flgDor BOOLEAN,
     flgRemovida BOOLEAN,
     flgFumo BOOLEAN,
     flgAlcool BOOLEAN
 
     PRIMARY KEY (id)
 );
+
+CREATE TABLE insercao (
+    id INT NOT NULL AUTO_INCREMENT,
+    nome varchar(45) NOT NULL UNIQUE,
+
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE doencaInsercao (
+    idInsercao INT NOT NULL,
+    idDoenca INT NOT NULL,
+
+    PRIMARY KEY (idInsercao, idDoenca),
+    FOREIGN KEY (idInsercao) REFERENCES insercao (id),
+    FOREIGN KEY (idDoenca) REFERENCES doenca (id)
+);
+
+CREATE TABLE comeco (
+    id INT NOT NULL AUTO_INCREMENT,
+    nome varchar(45) NOT NULL UNIQUE,
+
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE doencaComeco (
+    idComeco INT NOT NULL,
+    idDoenca INT NOT NULL,
+
+    PRIMARY KEY (idComeco, idDoenca),
+    FOREIGN KEY (idComeco) REFERENCES comeco (id),
+    FOREIGN KEY (idDoenca) REFERENCES doenca (id)
+);
+
+CREATE TABLE trauma (
+    id INT NOT NULL AUTO_INCREMENT,
+    nome varchar(45) NOT NULL UNIQUE,
+
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE doencaTrauma (
+    idTrauma INT NOT NULL,
+    idDoenca INT NOT NULL,
+
+    PRIMARY KEY (idTrauma, idDoenca),
+    FOREIGN KEY (idTrauma) REFERENCES trauma (id),
+    FOREIGN KEY (idDoenca) REFERENCES doenca (id)
+);
+
 
 CREATE TABLE cor (
     id INT NOT NULL AUTO_INCREMENT,
@@ -122,21 +169,5 @@ CREATE TABLE doencaLocalizacao (
 
     PRIMARY KEY (idLocalizacao, idDoenca),
     FOREIGN KEY (idLocalizacao) REFERENCES localizacao (id),
-    FOREIGN KEY (idDoenca) REFERENCES doenca (id)
-);
-
-CREATE TABLE trauma (
-    id INT NOT NULL AUTO_INCREMENT,
-    nome varchar(45) NOT NULL UNIQUE,
-
-    PRIMARY KEY (id)
-);
-
-CREATE TABLE doencaTrauma (
-    idTrauma INT NOT NULL,
-    idDoenca INT NOT NULL,
-
-    PRIMARY KEY (idTrauma, idDoenca),
-    FOREIGN KEY (idTrauma) REFERENCES trauma (id),
     FOREIGN KEY (idDoenca) REFERENCES doenca (id)
 );

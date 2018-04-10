@@ -17,4 +17,15 @@ module.exports = function (router) {
     router.post('/utility/selectByAtributoByTable', (req, res) => {
         utility.selectByAtributoByTable(req, res);
     });
+
+    router.post('/utility/insertDoenca', (req, res) => {
+        utility.insertDoenca(req, res);
+    });
+
+ 
+    router.post('/utility/insertRelacionamentos', (req, res) => {
+        utility.insertRelacionamentos(req, res);
+    });
+    
+    
 }

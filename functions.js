@@ -28,10 +28,10 @@ const service = function (query, req, res, data, callback, model, multiples) {
 
     if (multiples) {
         data.forEach(function (element, index) {
-            var dataAux = []
-            for (var entry in element)
-                dataAux.push(element[entry])
-            connection.query(query, dataAux, function (error, results, fields) {
+            // var dataAux = []
+            // for (var entry in element)
+            //     dataAux.push(element[entry])
+            connection.query(element, [], function (error, results, fields) {
                 if (error)
                     res.json(error);
             });

@@ -64,8 +64,9 @@ const insertRelacionamentos = function (req, res) {
     if (data != undefined) {
         for (var element of data) {
             var tabela = element.tabela[0].toUpperCase() + element.tabela.substring(1, element.tabela.length).toLowerCase()
-            queries.push("INSERT INTO doenca" + tabela + "(idDoenca, id" + tabela + ") VALUES (" + element.idDoenca + "," + element.id + ")");
-
+            for (var elemento of element.id){
+                queries.push("INSERT INTO doenca" + tabela + "(idDoenca, id" + tabela + ") VALUES (" + element.idDoenca + "," + elemento + ")");
+            }
         }
         functions.service("", req, res, queries, "", "", true);
     } else

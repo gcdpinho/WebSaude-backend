@@ -34,14 +34,16 @@ const service = function (query, req, res, data, callback, model, multiples) {
             connection.query(element, [], function (error, results, fields) {
                 if (error)
                     res.json(error);
+                if (index == data.length-1) {
+                    res.json({
+                        success: true
+                    });
+                    connection.end();
+                }
             });
         });
-        res.json({
-            success: true
-        });
-        connection.end();
-    }
-    else
+
+    } else
         connection.query(query, data, function (error, results, fields) {
             if (error)
                 res.json(error);

@@ -63,7 +63,7 @@ const insertRelacionamentos = function (req, res) {
     var queries = [];
     if (data != undefined) {
         for (var element of data) {
-            var tabela = element.tabela[0].toUpperCase() + element.tabela.substring(1, element.tabela.length).toLowerCase()
+            var tabela = element.tabela[0].toUpperCase() + element.tabela.substring(1, element.tabela.length);
             for (var elemento of element.id){
                 queries.push("INSERT INTO doenca" + tabela + "(idDoenca, id" + tabela + ") VALUES (" + element.idDoenca + "," + elemento + ")");
             }

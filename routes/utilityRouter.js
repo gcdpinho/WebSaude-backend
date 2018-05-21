@@ -18,14 +18,8 @@ module.exports = function (router) {
         utility.selectByAtributoByTable(req, res);
     });
 
-    router.post('/utility/insertDoenca', (req, res) => {
-        utility.insertDoenca(req, res);
+    router.post('/utility/insertByQuery', (req, res) => {
+        utility.insertByQuery(req, res);
     });
-
- 
-    router.post('/utility/insertRelacionamentos', (req, res) => {
-        utility.insertRelacionamentos(req, res);
-    });
-    
     
 }

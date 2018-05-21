@@ -38,48 +38,15 @@ const insertAll = function (req, res) {
     }
 }
 
-const insertDoenca = function (req, res) {
-    var atributos = req.body.atributos;
-    var values = req.body.values;
-
-    var q = "INSERT INTO doenca (";
-    for (var element of atributos)
-        q += element + ",";
-    q = q.substring(0, q.length - 1);
-    q += ") VALUES (";
-    for (element of values)
-        if (element.type == "string")
-            q += "\'" + element.value + "\',";
-        else
-            q += element.value + ",";
-    q = q.substring(0, q.length - 1);
-    q += ")";
-
-    functions.service(q, req, res, [], "", "", false);
+const insertByQuery = function (req, res) {
+    functions.service(req.body.query, req, res, [], "", "", false);
 }
 
-const insertRelacionamentos = function (req, res) {
-    var data = req.body.data;
-    var queries = [];
-    if (data != undefined) {
-        for (var element of data) {
-            var tabela = element.tabela[0].toUpperCase() + element.tabela.substring(1, element.tabela.length);
-            for (var elemento of element.id){
-                queries.push("INSERT INTO doenca" + tabela + "(idDoenca, id" + tabela + ") VALUES (" + element.idDoenca + "," + elemento + ")");
-            }
-        }
-        functions.service("", req, res, queries, "", "", true);
-    } else
-        res.json({
-            success: true
-        });
-}
 
 module.exports = {
     showTables,
     descTable,
     insertAll,
     selectByAtributoByTable,
-    insertDoenca,
-    insertRelacionamentos
+    insertByQuery
 };

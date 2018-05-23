@@ -1,13 +1,74 @@
 CREATE TABLE doenca(
     id INT NOT NULL AUTO_INCREMENT,
     nome varchar(45) NOT NULL UNIQUE,
-    tipo varchar(45),
-    flgDor BOOLEAN,
-    flgRemovida BOOLEAN,
-    flgFumo BOOLEAN,
-    flgAlcool BOOLEAN
+    tipo varchar(45)
 
     PRIMARY KEY (id)
+);
+
+CREATE TABLE dor (
+    id INT NOT NULL AUTO_INCREMENT,
+    nome varchar(45) NOT NULL UNIQUE,
+
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE doencaDor (
+    idDor INT NOT NULL,
+    idDoenca INT NOT NULL,
+
+    PRIMARY KEY (idDor, idDoenca),
+    FOREIGN KEY (idDor) REFERENCES dor (id),
+    FOREIGN KEY (idDoenca) REFERENCES doenca (id)
+);
+
+CREATE TABLE fumo (
+    id INT NOT NULL AUTO_INCREMENT,
+    nome varchar(45) NOT NULL UNIQUE,
+
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE doencaFumo (
+    idFumo INT NOT NULL,
+    idDoenca INT NOT NULL,
+
+    PRIMARY KEY (idFumo, idDoenca),
+    FOREIGN KEY (idFumo) REFERENCES fumo (id),
+    FOREIGN KEY (idDoenca) REFERENCES doenca (id)
+);
+
+
+CREATE TABLE alcool (
+    id INT NOT NULL AUTO_INCREMENT,
+    nome varchar(45) NOT NULL UNIQUE,
+
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE doencaAlcool (
+    idAlcool INT NOT NULL,
+    idDoenca INT NOT NULL,
+
+    PRIMARY KEY (idAlcool, idDoenca),
+    FOREIGN KEY (idAlcool) REFERENCES alcool (id),
+    FOREIGN KEY (idDoenca) REFERENCES doenca (id)
+);
+
+CREATE TABLE removida (
+    id INT NOT NULL AUTO_INCREMENT,
+    nome varchar(45) NOT NULL UNIQUE,
+
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE doencaRemovida (
+    idRemovida INT NOT NULL,
+    idDoenca INT NOT NULL,
+
+    PRIMARY KEY (idRemovida, idDoenca),
+    FOREIGN KEY (idRemovida) REFERENCES removida (id),
+    FOREIGN KEY (idDoenca) REFERENCES doenca (id)
 );
 
 CREATE TABLE insercao (

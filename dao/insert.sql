@@ -1,1 +1,0 @@
-INSERT INTO conduta (nome) VALUES ('Biopsia'),("Acompanhamento"),("Exame Radiolográfico"),("Exame Sanguíneo"),("Sintomatologia Dental"),("Vitropressão");

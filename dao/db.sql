@@ -14,7 +14,7 @@ CREATE TABLE conduta (
 );
 
 CREATE TABLE doencaConduta (
-    idDor INT NOT NULL,
+    idConduta INT NOT NULL,
     idDoenca INT NOT NULL,
 
     PRIMARY KEY (idConduta, idDoenca),

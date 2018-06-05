@@ -6,6 +6,22 @@ CREATE TABLE doenca(
     PRIMARY KEY (id)
 );
 
+CREATE TABLE conduta (
+    id INT NOT NULL AUTO_INCREMENT,
+    nome varchar(45) NOT NULL UNIQUE,
+
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE doencaConduta (
+    idDor INT NOT NULL,
+    idDoenca INT NOT NULL,
+
+    PRIMARY KEY (idConduta, idDoenca),
+    FOREIGN KEY (idConduta) REFERENCES conduta (id),
+    FOREIGN KEY (idDoenca) REFERENCES doenca (id)
+);
+
 CREATE TABLE dor (
     id INT NOT NULL AUTO_INCREMENT,
     nome varchar(45) NOT NULL UNIQUE,

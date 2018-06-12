@@ -10,7 +10,7 @@ module.exports = function (router) {
         doenca.updateDoenca(req, res);
     });
 
-    router.post('/doenca/selectAll', (req, res) => {
+    router.get('/doenca/selectAll', (req, res) => {
         doenca.selectAllDoenca(req, res);
     });
 
